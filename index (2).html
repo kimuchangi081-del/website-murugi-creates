@@ -417,6 +417,10 @@
         aspect-ratio: auto;
         object-fit: contain;
       }
+      .art.photo.pot-photo {
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+      }
       .info {
         padding: 1rem;
         display: flex;
@@ -838,22 +842,49 @@
           series: [
             {
               name: "Plant Tales",
-              note: "Ceramic-inspired finish",
+              note: "Hand-painted planters",
               pieces: [
                 {
-                  t: "Moss Bloom",
-                  size: "24 cm planter",
+                  t: "Every Day Gets Easier",
+                  size: "Ask for size",
                   c: ["#3e5d50", "#d9b57e"],
+                  image: "pots/IMG-20261014-WA0000.jpg",
                 },
                 {
-                  t: "Sage Halo",
-                  size: "28 cm planter",
+                  t: "Botanical Face",
+                  size: "Ask for size",
                   c: ["#5a6f57", "#e7c490"],
+                  image: "pots/IMG-20261014-WA0001.jpg",
                 },
                 {
-                  t: "Sunlit Leaf",
-                  size: "22 cm planter",
+                  t: "Heartleaf Garden",
+                  size: "Ask for size",
                   c: ["#7a8d63", "#f0d4a1"],
+                  image: "pots/IMG-20261014-WA0002.jpg",
+                },
+                {
+                  t: "Golden Hour Planter",
+                  size: "Ask for size",
+                  c: ["#7a8d63", "#f0d4a1"],
+                  image: "pots/IMG-20261014-WA0003.jpg",
+                },
+                {
+                  t: "Growing Together",
+                  size: "Ask for size",
+                  c: ["#7a8d63", "#f0d4a1"],
+                  image: "pots/IMG-20261014-WA0004.jpg",
+                },
+                {
+                  t: "Blue Abstract Planter",
+                  size: "Ask for size",
+                  c: ["#7a8d63", "#f0d4a1"],
+                  image: "pots/IMG-20261014-WA0005.jpg",
+                },
+                {
+                  t: "River Lines",
+                  size: "Ask for size",
+                  c: ["#7a8d63", "#f0d4a1"],
+                  image: "pots/IMG-20261014-WA0006.jpg",
                 },
               ],
             },
@@ -870,11 +901,13 @@
       function artSVG(p, textured, id, kind) {
         if (p.image)
           return (
-            '<img class="art photo" src="' +
+            '<img class="art photo' +
+            (kind === "pots" ? " pot-photo" : "") +
+            '" src="' +
             p.image +
             '" alt="' +
             p.t +
-            ' artwork">'
+            (kind === "pots" ? ' hand-painted planter">' : ' artwork">')
           );
         var a = p.c[0],
           b = p.c[1];
